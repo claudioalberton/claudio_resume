@@ -25,7 +25,7 @@ const stats = [
   },
   {
     icon: Users,
-    value: "100+",
+    value: "40+",
     label: "Projects Delivered",
     color: "text-primary"
   }

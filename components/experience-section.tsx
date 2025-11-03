@@ -33,7 +33,7 @@ export function ExperienceSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-8 md:pl-20 print-break-avoid"
+                  className="relative pl-8 md:pl-20 print-break-avoid print:pl-4"
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-[-6px] md:left-[26px] top-6 w-3 h-3 rounded-full bg-primary border-4 border-background print:border-white" />
@@ -82,15 +82,42 @@ export function ExperienceSection() {
 
                     <CardContent>
                       <ul className="space-y-2">
-                        {exp.responsibilities.map((resp, respIndex) => (
-                          <li
-                            key={respIndex}
-                            className="flex gap-2 text-sm md:text-base"
-                          >
-                            <span className="text-primary mt-1">•</span>
-                            <span className="flex-1">{resp}</span>
-                          </li>
-                        ))}
+                        {exp.responsibilities.map((resp, respIndex) => {
+                          // Check if the responsibility contains a URL
+                          const urlMatch = resp.match(/\(https?:\/\/[^)]+\)/);
+                          if (urlMatch) {
+                            const url = urlMatch[0].slice(1, -1); // Remove parentheses
+                            const textWithoutUrl = resp.replace(urlMatch[0], '').trim();
+                            return (
+                              <li
+                                key={respIndex}
+                                className="flex gap-2 text-sm md:text-base"
+                              >
+                                <span className="text-primary mt-1">•</span>
+                                <span className="flex-1">
+                                  {textWithoutUrl}{' '}
+                                  <a
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-primary hover:underline font-medium"
+                                  >
+                                    {url}
+                                  </a>
+                                </span>
+                              </li>
+                            );
+                          }
+                          return (
+                            <li
+                              key={respIndex}
+                              className="flex gap-2 text-sm md:text-base"
+                            >
+                              <span className="text-primary mt-1">•</span>
+                              <span className="flex-1">{resp}</span>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </CardContent>
                   </Card>

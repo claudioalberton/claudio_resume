@@ -72,12 +72,14 @@
 @media print {
   @page {
     size: A4;
-    margin: 1cm;
+    margin: 0.8cm;
   }
 
   body {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+    font-size: 11pt;
+    line-height: 1.4;
   }
 
   .no-print {
@@ -92,6 +94,11 @@
   .print-break-before {
     break-before: page;
     page-break-before: always;
+  }
+
+  .print-break-after {
+    break-after: page;
+    page-break-after: always;
   }
 
   nav,
@@ -112,5 +119,48 @@
 
   .timeline::before {
     background: #e5e7eb !important;
+  }
+
+  /* Prevent cards from breaking across pages */
+  .card,
+  [class*="Card"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Reduce spacing for print */
+  section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  /* Better spacing for experience items */
+  .space-y-8 > * {
+    margin-bottom: 1rem !important;
+  }
+
+  /* Ensure sidebar content flows properly */
+  aside {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  aside > div {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Reduce padding in sidebar for print */
+  aside .p-6,
+  aside .p-8 {
+    padding: 1rem !important;
+  }
+
+  /* Make sure main content area is full width */
+  main > div {
+    width: 100% !important;
   }
 }

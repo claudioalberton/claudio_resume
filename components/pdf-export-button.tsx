@@ -16,12 +16,24 @@ export function PDFExportButton({ contentRef }: PDFExportButtonProps) {
     pageStyle: `
       @page {
         size: A4;
-        margin: 1cm;
+        margin: 0.8cm;
       }
       @media print {
-        body {
+        * {
           print-color-adjust: exact;
           -webkit-print-color-adjust: exact;
+        }
+        body {
+          font-size: 11pt;
+          line-height: 1.4;
+        }
+        .card, [class*="Card"] {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        section {
+          padding-top: 1rem !important;
+          padding-bottom: 1rem !important;
         }
       }
     `,

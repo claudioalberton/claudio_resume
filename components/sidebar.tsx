@@ -82,8 +82,9 @@ function getLanguagePercentage(level: string): number {
   const levelMap: Record<string, number> = {
     Native: 100,
     "Full Professional": 95,
-    "Professional Working": 85,
+    "Professional Working": 70,
     "Elementary": 50,
+    "Basic": 15,
   }
   return levelMap[level] || 75
 }
@@ -91,13 +92,13 @@ function getLanguagePercentage(level: string): number {
 function getSkillPercentage(skill: string): number {
   // You can customize these percentages based on your actual skill levels
   const skillLevels: Record<string, number> = {
-    ".NET C#": 95,
+    ".NET C#": 90,
     "Full Stack Development": 90,
     "SQL Server": 90,
-    AWS: 85,
-    "ERP Systems": 95,
+    AWS: 70,
+    "ERP Systems": 80,
     "Software Architecture": 90,
-    "Computer Vision (OpenCV, AForge)": 85,
+    "Image Processing": 85,
     "OCR Technology": 85,
     "Scrum/Agile": 90,
     "Active Directory": 85,
@@ -105,12 +106,15 @@ function getSkillPercentage(skill: string): number {
     Networking: 80,
     Communication: 95,
     "Infrastructure Management": 90,
+    "AI Tools (Programming, Code Generation, Planning)": 85,
+    "AI-Assisted Development": 85,
+    "AI-Powered Planning & Automation": 85,
   }
   return skillLevels[skill] || 75
 }
 
 export function Sidebar() {
-  const topSkills = resumeData.skills.slice(0, 8)
+  const topSkills = resumeData.skills.slice(0, 10)
   const languages = resumeData.languages
   const [imageError, setImageError] = useState(false)
 
@@ -234,7 +238,7 @@ export function Sidebar() {
           >
             <h3 className="text-lg font-semibold mb-4 text-foreground">Other Knowledge</h3>
             <div className="space-y-2">
-              {resumeData.skills.slice(8).map((skill, index) => (
+              {resumeData.skills.slice(10).map((skill, index) => (
                 <div key={index} className="flex items-center gap-2 text-sm">
                   <Check className="h-4 w-4 text-primary flex-shrink-0" />
                   <span className="text-muted-foreground">{skill}</span>
