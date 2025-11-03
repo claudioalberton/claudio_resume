@@ -3,17 +3,18 @@
 import { motion } from "framer-motion"
 import { Briefcase, Award, Code, Users } from "lucide-react"
 import { resumeData } from "@/data/resume-data"
+import { useRouter } from "next/navigation"
 
 const stats = [
   {
     icon: Briefcase,
-    value: "18+",
+    value: "19+",
     label: "Years Experience",
     color: "text-primary"
   },
   {
     icon: Code,
-    value: `${resumeData.experience.reduce((acc, exp) => acc + (exp.technologies?.length || 0), 0)}+`,
+    value: `${resumeData.skills.length}+`,
     label: "Technologies",
     color: "text-primary"
   },
@@ -32,6 +33,24 @@ const stats = [
 ]
 
 export function HeroSection() {
+  const router = useRouter()
+
+  const handleStatClick = (label: string) => {
+    if (label === "Technologies") {
+      const element = document.getElementById("technologies")
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    } else if (label === "Patents & Innovations") {
+      const element = document.getElementById("patents")
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    } else if (label === "Projects Delivered") {
+      router.push("/projects")
+    }
+  }
+
   return (
     <section className="relative py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5 print:bg-none print:py-8">
       <div className="container mx-auto px-4">
@@ -58,7 +77,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/70 print:text-foreground print:bg-none"
             >
-              {resumeData.name.split(" ")[0]} {resumeData.name.split(" ")[1]}
+              Professional Summary
             </motion.h1>
 
             <motion.p
@@ -89,13 +108,17 @@ export function HeroSection() {
           >
             {stats.map((stat, index) => {
               const Icon = stat.icon
+              const isClickable = stat.label === "Technologies" || stat.label === "Patents & Innovations" || stat.label === "Projects Delivered"
               return (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="text-center p-6 bg-card rounded-lg border border-border hover:shadow-lg transition-shadow print:shadow-none"
+                  className={`text-center p-6 bg-card rounded-lg border border-border hover:shadow-lg transition-all print:shadow-none ${
+                    isClickable ? "cursor-pointer hover:scale-105 hover:border-primary" : ""
+                  }`}
+                  onClick={() => isClickable && handleStatClick(stat.label)}
                 >
                   <Icon className={`h-8 w-8 mx-auto mb-3 ${stat.color}`} />
                   <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}>

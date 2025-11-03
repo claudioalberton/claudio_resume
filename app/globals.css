@@ -72,14 +72,15 @@
 @media print {
   @page {
     size: A4;
-    margin: 0.8cm;
+    margin: 0.4cm;
   }
 
   body {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-    font-size: 11pt;
-    line-height: 1.4;
+    font-size: 10pt;
+    line-height: 1.5;
+    font-family: 'Inter', 'Arial', sans-serif;
   }
 
   .no-print {
@@ -117,50 +118,426 @@
     color: inherit;
   }
 
-  .timeline::before {
-    background: #e5e7eb !important;
+  /* Two-column layout for resume */
+  main {
+    display: flex !important;
+    flex-direction: row !important;
+    height: auto !important;
+    min-height: auto !important;
+    background: white !important;
   }
 
-  /* Prevent cards from breaking across pages */
-  .card,
-  [class*="Card"] {
-    break-inside: avoid;
-    page-break-inside: avoid;
+  main > div {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  /* Reduce spacing for print */
-  section {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+  main > div:first-child {
+    display: flex !important;
+    flex-direction: row !important;
   }
 
-  /* Better spacing for experience items */
-  .space-y-8 > * {
-    margin-bottom: 1rem !important;
-  }
-
-  /* Ensure sidebar content flows properly */
+  /* Left column - Dark blue sidebar */
   aside {
     position: static !important;
-    width: 100% !important;
+    width: 32% !important;
+    min-width: 32% !important;
+    max-width: 32% !important;
+    background: #1e293b !important;
+    color: white !important;
+    padding: 0 !important;
     height: auto !important;
     overflow: visible !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    border-right: none !important;
   }
 
   aside > div {
     position: static !important;
     height: auto !important;
     overflow: visible !important;
+    padding: 0.8cm 0.6cm !important;
   }
 
-  /* Reduce padding in sidebar for print */
-  aside .p-6,
-  aside .p-8 {
-    padding: 1rem !important;
+  aside > div > div {
+    padding: 0 !important;
   }
 
-  /* Make sure main content area is full width */
-  main > div {
-    width: 100% !important;
+  aside .space-y-8 {
+    gap: 0.8rem !important;
+  }
+
+  /* Profile photo in sidebar */
+  aside img {
+    width: 100px !important;
+    height: 100px !important;
+    border: 3px solid hsl(var(--primary)) !important;
+    border-radius: 50% !important;
+  }
+
+  aside [class*="relative"] {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto 0.8rem !important;
+    border-radius: 50% !important;
+  }
+
+  /* Name in sidebar */
+  aside h1 {
+    color: white !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 12pt !important;
+    margin-bottom: 0.3rem !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Section headings */
+  aside h3 {
+    font-size: 10pt !important;
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid hsl(var(--primary) / 0.5) !important;
+    padding-bottom: 0.2rem;
+    color: white !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  aside h3:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  /* All text white in sidebar - but be careful with divs */
+  aside p,
+  aside span:not([class*="absolute"]),
+  aside li,
+  aside a {
+    color: white !important;
+    font-size: 8pt !important;
+  }
+
+  aside [class*="text-muted-foreground"],
+  aside [class*="text-foreground"] {
+    color: white !important;
+  }
+
+  /* Make sure motion.div children have white text */
+  aside [class*="motion"] p,
+  aside [class*="motion"] span,
+  aside [class*="motion"] a,
+  aside [class*="motion"] li {
+    color: white !important;
+  }
+
+  /* Title text in sidebar */
+  aside [class*="flex flex-col items-center"] p {
+    font-size: 7pt !important;
+    color: white !important;
+    margin-top: 0.3rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    text-align: center !important;
+  }
+
+  /* Profile section */
+  aside [class*="flex flex-col items-center"] {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* Contact section */
+  aside [class*="space-y-3"] {
+    margin-top: 0.5rem;
+  }
+
+  aside [class*="space-y-3"] > div {
+    margin-bottom: 0.6rem;
+    color: white !important;
+  }
+
+  aside [class*="space-y-3"] span,
+  aside [class*="space-y-3"] a {
+    color: white !important;
+    font-size: 9pt !important;
+  }
+
+  /* Right column - White content area */
+  main > div > div:last-child,
+  main > div > .flex-1 {
+    width: 68% !important;
+    flex: 1 !important;
+    background: white !important;
+    padding: 0.8cm 1cm !important;
+    color: #1e293b !important;
+    display: block !important;
+  }
+
+  /* Don't hide education in main - it's in sidebar only for print */
+
+  /* Name and title at top of right column */
+  section:first-child {
+    margin-bottom: 0.6rem !important;
+  }
+
+  section:first-child h1 {
+    font-size: 24pt !important;
+    font-weight: 700;
+    color: #1e293b !important;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  section:first-child h1 span:first-child {
+    font-size: 32pt !important;
+  }
+
+  section:first-child p {
+    font-size: 11pt;
+    color: #475569 !important;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+  }
+
+  /* Profile summary */
+  section:first-child p:last-of-type {
+    font-size: 8pt !important;
+    line-height: 1.35;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    color: #334155 !important;
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+
+  /* Title line */
+  section:first-child > div > div > p:nth-of-type(2) {
+    border-bottom: 2px solid #cbd5e1 !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0.8rem !important;
+    display: block !important;
+  }
+
+  /* Section headings in right column */
+  section h2 {
+    font-size: 11pt !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1e293b !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 0.15rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* PROFILE section heading */
+  section:first-child h2 {
+    display: none !important;
+  }
+
+  /* Hide icons in print */
+  svg {
+    display: none !important;
+  }
+
+  /* Experience section styling */
+  section ul li, section ol li {
+    font-size: 7.5pt;
+    line-height: 1.35;
+    margin-bottom: 0.15rem;
+    color: #334155 !important;
+  }
+
+  /* Experience entries */
+  section:has([class*="experience-section"]) [class*="CardTitle"] {
+    font-weight: 700;
+    font-size: 10pt !important;
+    color: #1e293b !important;
+    margin-bottom: 0.05rem;
+  }
+
+  section:has([class*="experience-section"]) [class*="CardDescription"] {
+    font-weight: 600;
+    font-size: 8pt !important;
+    color: #475569 !important;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Experience dates and location */
+  section:has([class*="experience-section"]) [class*="flex flex-wrap"] {
+    font-size: 7pt;
+    color: #64748b !important;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Cards - remove styling for print */
+  .card,
+  [class*="Card"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Timeline styling */
+  .timeline::before {
+    background: #cbd5e1 !important;
+    width: 2px !important;
+  }
+
+  /* Reduce spacing */
+  section {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+  }
+
+  .space-y-8 > * {
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* Reduce experience card spacing */
+  main > div > .flex-1 > section:nth-child(3) .space-y-8 > * {
+    margin-bottom: 0.3rem !important;
+  }
+
+  /* Hide statistics cards in hero section */
+  main > div > .flex-1 > section:first-child [class*="grid grid-cols"] {
+    display: none !important;
+  }
+
+  /* Hide "Discover my Amazing Tech Space" badge */
+  main > div > .flex-1 > section:first-child [class*="inline-block"] {
+    display: none !important;
+  }
+
+  /* Show hero section content */
+  main > div > .flex-1 > section:first-child {
+    display: block !important;
+  }
+
+  /* Hide achievements section - too long for print */
+  main > div > .flex-1 > section:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Ensure experience section is visible */
+  main > div > .flex-1 > section:nth-child(3) {
+    display: block !important;
+  }
+
+  /* Hide education, skills, languages, patents - they're in sidebar */
+  main > div > .flex-1 > section:nth-child(n+4) {
+    display: none !important;
+  }
+
+  /* Skills in sidebar - convert progress bars to text list */
+  aside [class*="ProgressBar"],
+  aside [class*="LanguageProgress"],
+  aside [class*="Progress"] {
+    display: none !important;
+  }
+
+  aside [class*="space-y-2"] {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  aside ul, aside ol {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  aside li {
+    margin-bottom: 0.2rem;
+    color: white !important;
+    font-size: 8pt !important;
+    line-height: 1.3;
+  }
+
+  /* Convert language progress circles to text - already handled by component */
+  aside .print\\:hidden + ul {
+    display: block !important;
+  }
+
+  aside .print\\:hidden + ul li {
+    margin-bottom: 0.3rem;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* Skills and Languages lists in print */
+  aside ul.print\\:block li,
+  aside ul:not([class*="grid"]) li {
+    margin-bottom: 0.3rem;
+    list-style: disc;
+    padding-left: 0;
+    margin-left: 1.2rem;
+    color: white !important;
+  }
+
+  /* Education formatting in sidebar */
+  aside [class*="education-section"] h3 {
+    margin-top: 1.5rem;
+  }
+
+  /* Technical Skills - show as simple list */
+  aside h3:contains("Technical Skills") + div {
+    list-style: disc;
+  }
+
+  /* Experience section - timeline on right */
+  section:has([class*="experience-section"]) {
+    padding-left: 1.5rem;
+  }
+
+  section:has([class*="experience-section"]) [class*="relative"] {
+    position: relative;
+  }
+
+  /* Remove card backgrounds and borders for print */
+  [class*="CardHeader"],
+  [class*="CardContent"] {
+    padding: 0.3rem 0 !important;
+  }
+
+  [class*="CardTitle"] {
+    font-size: 10pt !important;
+    font-weight: 700;
+    margin-bottom: 0.1rem;
+  }
+
+  [class*="CardDescription"] {
+    font-size: 8pt !important;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Technologies as inline list */
+  [class*="Badge"] {
+    display: inline;
+    background: transparent !important;
+    padding: 0 !important;
+    font-size: 6.5pt;
+    color: #64748b !important;
+  }
+
+  [class*="Badge"]::after {
+    content: ", ";
+  }
+
+  [class*="Badge"]:last-child::after {
+    content: "";
   }
 }

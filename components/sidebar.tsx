@@ -1,11 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MapPin, Mail, Linkedin, Download, Check } from "lucide-react"
+import { MapPin, Mail, Linkedin, Check } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import { resumeData } from "@/data/resume-data"
-import { Button } from "@/components/ui/button"
 
 interface ProgressBarProps {
   label: string
@@ -81,7 +80,7 @@ function LanguageProgress({ label, percentage, index }: ProgressBarProps & { ind
 function getLanguagePercentage(level: string): number {
   const levelMap: Record<string, number> = {
     Native: 100,
-    "Full Professional": 95,
+    "Full Professional": 90,
     "Professional Working": 70,
     "Elementary": 50,
     "Basic": 15,
@@ -92,9 +91,25 @@ function getLanguagePercentage(level: string): number {
 function getSkillPercentage(skill: string): number {
   // You can customize these percentages based on your actual skill levels
   const skillLevels: Record<string, number> = {
+    "Team Management": 90,
+    "AI Tools (Programming, Code Generation, Planning)": 90,
+    "AI-Assisted Development": 90,
+    "AI-Powered Planning & Automation": 90,
     ".NET C#": 90,
     "Full Stack Development": 90,
+    "Next.js": 85,
+    "TypeScript": 85,
+    "Tailwind CSS": 85,
     "SQL Server": 90,
+    "Visual Studio": 90,
+    "AForge": 85,
+    "OpenCV": 85,
+    "Pascal Delphi": 90,
+    "Oracle": 80,
+    "Java": 75,
+    Networking: 80,
+    Communication: 95,
+    "Infrastructure Management": 90,
     AWS: 70,
     "ERP Systems": 80,
     "Software Architecture": 90,
@@ -103,12 +118,7 @@ function getSkillPercentage(skill: string): number {
     "Scrum/Agile": 90,
     "Active Directory": 85,
     "Database Administration": 90,
-    Networking: 80,
-    Communication: 95,
-    "Infrastructure Management": 90,
-    "AI Tools (Programming, Code Generation, Planning)": 85,
-    "AI-Assisted Development": 85,
-    "AI-Powered Planning & Automation": 85,
+    "Teamwork": 85,
   }
   return skillLevels[skill] || 75
 }
@@ -163,32 +173,56 @@ export function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">Personal Details</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">CONTACT</h3>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm">
-                <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-muted-foreground">{resumeData.location}</span>
+              <div className="flex items-center gap-3 text-sm print:flex-col print:items-start print:gap-1">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0 print:hidden" />
+                <span className="text-muted-foreground print:text-white">{resumeData.location}</span>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+              <div className="flex items-center gap-3 text-sm print:flex-col print:items-start print:gap-1">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0 print:hidden" />
                 <a
                   href={`mailto:${resumeData.email}`}
-                  className="text-muted-foreground hover:text-primary transition-colors break-all"
+                  className="text-muted-foreground hover:text-primary transition-colors break-all print:text-white print:no-underline"
                 >
                   {resumeData.email}
                 </a>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <Linkedin className="h-4 w-4 text-primary flex-shrink-0" />
+              <div className="flex items-center gap-3 text-sm print:flex-col print:items-start print:gap-1">
+                <Linkedin className="h-4 w-4 text-primary flex-shrink-0 print:hidden" />
                 <a
                   href={`https://${resumeData.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors print:text-white print:no-underline"
                 >
-                  LinkedIn Profile
+                  {resumeData.linkedin}
                 </a>
               </div>
+            </div>
+          </motion.div>
+
+          {/* Education - Print only */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="hidden print:block"
+          >
+            <h3 className="text-lg font-semibold mb-4 text-foreground">EDUCATION</h3>
+            <div className="space-y-4">
+              {resumeData.education.map((edu, index) => {
+                const periods = edu.period.split(' - ');
+                return (
+                  <div key={index} className="mb-3">
+                    <p className="font-bold text-sm mb-1">{periods[0]}{periods[1] ? ' - ' + periods[1] : ''}</p>
+                    <p className="font-bold text-sm mb-1">{edu.institution.toUpperCase()}</p>
+                    <ul className="list-disc pl-4 text-xs space-y-0.5">
+                      <li>{edu.degree}</li>
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -198,8 +232,8 @@ export function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">Languages</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <h3 className="text-lg font-semibold mb-4 text-foreground">LANGUAGES</h3>
+            <div className="grid grid-cols-2 gap-4 print:hidden">
               {languages.map((language, index) => (
                 <LanguageProgress
                   key={index}
@@ -209,6 +243,13 @@ export function Sidebar() {
                 />
               ))}
             </div>
+            <ul className="hidden print:block space-y-1">
+              {languages.map((language, index) => (
+                <li key={index} className="text-sm">
+                  {language.name} ({language.level})
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* Technical Skills */}
@@ -217,8 +258,8 @@ export function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">Technical Skills</h3>
-            <div className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 text-foreground">SKILLS</h3>
+            <div className="space-y-2 print:hidden">
               {topSkills.map((skill, index) => (
                 <ProgressBar
                   key={index}
@@ -227,6 +268,13 @@ export function Sidebar() {
                 />
               ))}
             </div>
+            <ul className="hidden print:block space-y-1">
+              {resumeData.skills.map((skill, index) => (
+                <li key={index} className="text-sm">
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* Other Knowledge */}
@@ -247,21 +295,6 @@ export function Sidebar() {
             </div>
           </motion.div>
 
-          {/* Download CV Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="pt-4 print:hidden"
-          >
-            <Button
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => window.print()}
-            >
-              <Download className="h-4 w-4 mr-2" />
-              Download CV
-            </Button>
-          </motion.div>
         </div>
       </div>
     </aside>

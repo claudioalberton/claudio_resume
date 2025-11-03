@@ -7,7 +7,7 @@ import { resumeData } from "@/data/resume-data"
 
 export function PatentsSection() {
   return (
-    <section className="py-16 bg-secondary/20 print:bg-none print:py-8 print-break-avoid">
+    <section id="patents" className="py-16 bg-secondary/20 print:bg-none print:py-8 print-break-avoid">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
