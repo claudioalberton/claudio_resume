@@ -159,11 +159,11 @@ export const resumeData: ResumeData = {
   ],
   technicalExpertise: [
     "Languages & Frameworks: C#, .NET, Next.js, TypeScript, Tailwind CSS, SQL Server",
-    "Cloud & DevOps: AWS, Docker, CI/CD, Infrastructure Automation",
+    "Cloud & DevOps: AWS, Google Cloud, Docker, CI/CD, Infrastructure Automation",
     "Computer Vision & AI Tools: OpenCV, AForge, OCR Systems, Image Processing",
     "Databases: SQL Server, Oracle",
-    "Other Tools: Active Directory, Visual Studio, Pascal Delphi",
-    "Methodologies: Scrum/Agile, R&D Innovation, Executive Technology Strategy"
+    "Other Tools: Active Directory, Visual Studio, Pascal Delphi, Microsoft Office Suite, Google Workspace",
+    "Project Management: Jira, Teamwork, Scrum/Agile, R&D Innovation, Executive Technology Strategy"
   ],
   languages: [
     { name: "English", level: "Full Professional" },
