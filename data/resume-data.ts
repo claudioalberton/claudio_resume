@@ -41,11 +41,11 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   name: "Claudio Alberton Batista",
-  title: "Senior IT Operations Engineer | Development and Innovation Manager | Senior Software Engineer ",
+  title: "Technology Development Manager | Senior IT Operations Engineer | Software Architect",
   location: "Araucária, Paraná, Brazil",
   email: "claudioalberton11@gmail.com",
   linkedin: "www.linkedin.com/in/claudio-alberton-batista-366891120",
-  summary: "Technical leader and senior software engineer with 19+ years of experience transforming businesses through innovative solutions. Starting with ERP systems development, I've evolved into architecting world-class software for the automotive industry, including Latin America's first 3D aligner and the world's most advanced laser alignment systems. Currently leading IT operations at a Canadian gaming company while managing technology development for automotive equipment in Brazil. I specialize in full-stack development, cloud solutions (AWS), AI integration for daily operations, and building scalable systems that drive measurable productivity gains. My work has resulted in multiple patents and enterprise-level automation solutions for major brands.",
+  summary: "Technology Development Manager and Software Architect with 19+ years leading innovation across automotive manufacturing and gaming industries. Designed patented 3D alignment systems deployed across Latin America, and currently modernizing global IT infrastructure and automation for a Canadian game studio. Architected world-class software including the world's most advanced laser alignment systems and Latin America's first AI-powered 3D aligner. Specializes in full-stack development (.NET, SQL Server), cloud solutions (AWS), AI-powered workflows, and building scalable systems that drive measurable productivity gains. Results include multiple patents and enterprise-level automation solutions for major brands.",
   keyAchievements: [
     "Aligner Digi 4: World's most advanced laser aligner for light and heavy vehicles, detecting laser beams at distances exceeding 20 meters",
     "Aligner Digi 5: New version of the world's most advanced aligner with more robust software and cloud services integration",
@@ -80,19 +80,14 @@ export const resumeData: ResumeData = {
       duration: "5 years 11 months",
       technologies: [".NET C#", "Visual Studio", "Full Stack", "AForge", "OpenCV", "OCR", "Pascal Delphi", "Scrum"],
       responsibilities: [
-        "Acting Board Member (2023–2025): Represented the board during executive transition, managing strategic, operational, and R&D decisions",
-        "Led development of patented automotive alignment technologies and modernization of ERP systems",
-        "Structured the development department with project management and planning to streamline innovation and solutions to the automotive market",
-        "Responsible for the development and maintenance of the company's tech overseeing the development of new products and the maintenance of the existing ones",
-        "Full Stack Developer of 3D Aligner Software and Geometria Software",
-        "Software architecture and planning",
-        "Creating schedules and managing projects",
-        "Agile project management using Scrum",
-        "Architect of new solutions for the automotive market",
+        "Acting Board Member (2023–2025): Represented company leadership during executive transition, overseeing R&D and manufacturing strategy",
+        "Directed development of patented 3D alignment systems adopted nationwide across Latin America",
+        "Modernized ERP architecture and cloud infrastructure (AWS, SQL Server, .NET)",
+        "Full Stack Developer and Architect of 3D Aligner Software and Geometria Software, used in world's most advanced laser alignment systems",
+        "Structured development department with project management and planning to streamline innovation and solutions to the automotive market",
         "AI Integration: Utilize AI tools in daily work routine for programming assistance, code generation, planning, and development optimization",
-        "Responsible for implementing and managing tax incentives related to the company's development, namely 'Lei do Bem' and 'Ex-tarifário', successfully qualifying projects for government incentives",
-        "Establishing partnerships with solution providers",
-        "Development of software for automotive equipment and creating the ecosystem of solutions involved"
+        "Implemented and managed tax incentives ('Lei do Bem' and 'Ex-tarifário'), successfully qualifying projects for government incentives with significant annual tax reductions",
+        "Established partnerships with solution providers and developed ecosystem of integrated automotive equipment solutions"
       ]
     },
     {
@@ -157,9 +152,9 @@ export const resumeData: ResumeData = {
     "AI Tools (Programming, Code Generation, Planning)",
     "AI-Assisted Development",
     "AI-Powered Planning & Automation",
-    "Networking",
-    "Communication",
-    "Infrastructure Management",
+    "Systems Automation",
+    "Cloud Governance (AWS)",
+    "Device Lifecycle Operations",
     ".NET C#",
     "Full Stack Development",
     "Next.js",
@@ -180,7 +175,9 @@ export const resumeData: ResumeData = {
     "Scrum/Agile",
     "Active Directory",
     "Database Administration",
-    "Teamwork"
+    "R&D Innovation",
+    "Executive Technology Strategy",
+    "Project Management"
   ],
   languages: [
     { name: "English", level: "Full Professional" },

@@ -95,6 +95,9 @@ function getSkillPercentage(skill: string): number {
     "AI Tools (Programming, Code Generation, Planning)": 90,
     "AI-Assisted Development": 90,
     "AI-Powered Planning & Automation": 90,
+    "Systems Automation": 90,
+    "Cloud Governance (AWS)": 85,
+    "Device Lifecycle Operations": 90,
     ".NET C#": 90,
     "Full Stack Development": 90,
     "Next.js": 85,
@@ -107,9 +110,6 @@ function getSkillPercentage(skill: string): number {
     "Pascal Delphi": 90,
     "Oracle": 80,
     "Java": 75,
-    Networking: 80,
-    Communication: 95,
-    "Infrastructure Management": 90,
     AWS: 70,
     "ERP Systems": 80,
     "Software Architecture": 90,
@@ -118,7 +118,9 @@ function getSkillPercentage(skill: string): number {
     "Scrum/Agile": 90,
     "Active Directory": 85,
     "Database Administration": 90,
-    "Teamwork": 85,
+    "R&D Innovation": 90,
+    "Executive Technology Strategy": 85,
+    "Project Management": 90,
   }
   return skillLevels[skill] || 75
 }

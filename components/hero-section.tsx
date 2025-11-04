@@ -62,15 +62,6 @@ export function HeroSection() {
         >
           {/* Hero Content */}
           <div className="mb-12 text-center print:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-block px-4 py-2 mb-6 text-sm font-semibold rounded-full bg-primary/10 text-primary"
-            >
-              <code className="text-primary">Discover my Amazing Tech Space!</code>
-            </motion.div>
-            
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
