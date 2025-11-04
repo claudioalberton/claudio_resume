@@ -5,13 +5,6 @@ import { Briefcase, Award, Code, Users } from "lucide-react"
 import { resumeData } from "@/data/resume-data"
 import { useRouter } from "next/navigation"
 
-"use client"
-
-import { motion } from "framer-motion"
-import { Briefcase, Award, Code, Users } from "lucide-react"
-import { resumeData } from "@/data/resume-data"
-import { useRouter } from "next/navigation"
-
 // Count individual technologies from technical expertise strings
 const countTechnologies = () => {
   let count = 0
