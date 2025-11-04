@@ -155,7 +155,9 @@ export const resumeData: ResumeData = {
     "AI-Powered Planning & Process Optimization",
     "Device Lifecycle Management",
     "Software Architecture & ERP Modernization",
-    "AI-Assisted Development & Strategic Automation"
+    "AI-Assisted Development & Strategic Automation",
+    "R&D Innovation",
+    "Executive Technology Strategy"
   ],
   technicalExpertise: [
     "Languages & Frameworks: C#, .NET, Next.js, TypeScript, Tailwind CSS, SQL Server",
@@ -163,7 +165,7 @@ export const resumeData: ResumeData = {
     "Computer Vision & AI Tools: OpenCV, AForge, OCR Systems, Image Processing",
     "Databases: SQL Server, Oracle",
     "Other Tools: Active Directory, Visual Studio, Pascal Delphi, Microsoft Office Suite, Google Workspace",
-    "Project Management: Jira, Teamwork, Scrum/Agile, R&D Innovation, Executive Technology Strategy"
+    "Project Management Tools: Jira, Teamwork, Scrum/Agile"
   ],
   languages: [
     { name: "English", level: "Full Professional" },
