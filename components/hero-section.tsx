@@ -5,6 +5,24 @@ import { Briefcase, Award, Code, Users } from "lucide-react"
 import { resumeData } from "@/data/resume-data"
 import { useRouter } from "next/navigation"
 
+"use client"
+
+import { motion } from "framer-motion"
+import { Briefcase, Award, Code, Users } from "lucide-react"
+import { resumeData } from "@/data/resume-data"
+import { useRouter } from "next/navigation"
+
+// Count individual technologies from technical expertise strings
+const countTechnologies = () => {
+  let count = 0
+  resumeData.technicalExpertise.forEach(item => {
+    // Extract technologies after the colon
+    const technologies = item.split(':')[1]?.split(',').map(t => t.trim()).filter(t => t.length > 0) || []
+    count += technologies.length
+  })
+  return count
+}
+
 const stats = [
   {
     icon: Briefcase,
@@ -14,7 +32,7 @@ const stats = [
   },
   {
     icon: Code,
-    value: `${resumeData.coreCompetencies.length + resumeData.technicalExpertise.length}+`,
+    value: `${countTechnologies()}+`,
     label: "Technologies",
     color: "text-primary"
   },
