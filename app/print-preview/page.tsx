@@ -205,7 +205,7 @@ function PrintPreviewContent() {
                 <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-yellow-500 mb-0.5" style={{ marginBottom: '2pt', marginTop: '0' }}>
                   {!imageError ? (
                     <Image
-                      src="/images/profile-photo.jpg"
+                      src="/claudio_resume/images/profile-photo.jpg"
                       alt={resumeData.name}
                       fill
                       className="object-cover"
@@ -395,7 +395,7 @@ function PrintPreviewContent() {
                 <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-yellow-500 mb-1">
                   {!imageError ? (
                     <Image
-                      src="/images/profile-photo.jpg"
+                      src="/claudio_resume/images/profile-photo.jpg"
                       alt={resumeData.name}
                       fill
                       className="object-cover"

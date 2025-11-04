@@ -144,7 +144,7 @@ export function Sidebar() {
             <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4 bg-gradient-to-br from-primary/20 to-primary/10">
               {!imageError ? (
                 <Image
-                  src="/images/profile-photo.jpg"
+                  src="/claudio_resume/images/profile-photo.jpg"
                   alt={resumeData.name}
                   fill
                   className="object-cover"
