@@ -6,31 +6,13 @@ import Image from "next/image"
 import { useState } from "react"
 import { resumeData } from "@/data/resume-data"
 
-interface ProgressBarProps {
+interface LanguageProgressProps {
   label: string
   percentage: number
+  index: number
 }
 
-function ProgressBar({ label, percentage }: ProgressBarProps) {
-  return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-foreground/90">{label}</span>
-        <span className="text-sm font-semibold text-primary">{percentage}%</span>
-      </div>
-      <div className="w-full bg-secondary h-2 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: `${percentage}%` }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="h-full bg-gradient-to-r from-primary to-primary/80 rounded-full"
-        />
-      </div>
-    </div>
-  )
-}
-
-function LanguageProgress({ label, percentage, index }: ProgressBarProps & { index: number }) {
+function LanguageProgress({ label, percentage, index }: LanguageProgressProps) {
   const gradientId = `gradient-${index}`
   return (
     <div className="mb-6">
@@ -88,45 +70,7 @@ function getLanguagePercentage(level: string): number {
   return levelMap[level] || 75
 }
 
-function getSkillPercentage(skill: string): number {
-  // You can customize these percentages based on your actual skill levels
-  const skillLevels: Record<string, number> = {
-    "Team Management": 90,
-    "AI Tools (Programming, Code Generation, Planning)": 90,
-    "AI-Assisted Development": 90,
-    "AI-Powered Planning & Automation": 90,
-    "Systems Automation": 90,
-    "Cloud Governance (AWS)": 85,
-    "Device Lifecycle Operations": 90,
-    ".NET C#": 90,
-    "Full Stack Development": 90,
-    "Next.js": 85,
-    "TypeScript": 85,
-    "Tailwind CSS": 85,
-    "SQL Server": 90,
-    "Visual Studio": 90,
-    "AForge": 85,
-    "OpenCV": 85,
-    "Pascal Delphi": 90,
-    "Oracle": 80,
-    "Java": 75,
-    AWS: 70,
-    "ERP Systems": 80,
-    "Software Architecture": 90,
-    "Image Processing": 85,
-    "OCR Technology": 85,
-    "Scrum/Agile": 90,
-    "Active Directory": 85,
-    "Database Administration": 90,
-    "R&D Innovation": 90,
-    "Executive Technology Strategy": 85,
-    "Project Management": 90,
-  }
-  return skillLevels[skill] || 75
-}
-
 export function Sidebar() {
-  const topSkills = resumeData.skills.slice(0, 10)
   const languages = resumeData.languages
   const [imageError, setImageError] = useState(false)
 
@@ -254,47 +198,63 @@ export function Sidebar() {
             </ul>
           </motion.div>
 
-          {/* Technical Skills */}
+          {/* Core Competencies */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">SKILLS</h3>
-            <div className="space-y-2 print:hidden">
-              {topSkills.map((skill, index) => (
-                <ProgressBar
-                  key={index}
-                  label={skill}
-                  percentage={getSkillPercentage(skill)}
-                />
-              ))}
-            </div>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">CORE COMPETENCIES</h3>
             <ul className="hidden print:block space-y-1">
-              {resumeData.skills.map((skill, index) => (
+              {resumeData.coreCompetencies.map((competency, index) => (
                 <li key={index} className="text-sm">
-                  {skill}
+                  {competency}
                 </li>
               ))}
             </ul>
+            <div className="space-y-2 print:hidden">
+              {resumeData.coreCompetencies.map((competency, index) => (
+                <div key={index} className="flex items-start gap-2 text-sm">
+                  <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{competency}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Other Knowledge */}
+          {/* Technical Expertise */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="print:hidden"
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">Other Knowledge</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">TECHNICAL EXPERTISE</h3>
             <div className="space-y-2">
-              {resumeData.skills.slice(10).map((skill, index) => (
-                <div key={index} className="flex items-center gap-2 text-sm">
-                  <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-muted-foreground">{skill}</span>
+              {resumeData.technicalExpertise.map((expertise, index) => (
+                <div key={index} className="flex items-start gap-2 text-sm">
+                  <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{expertise}</span>
                 </div>
               ))}
             </div>
+          </motion.div>
+          
+          {/* Technical Expertise - Print Version */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="hidden print:block"
+          >
+            <h3 className="text-lg font-semibold mb-4 text-foreground">TECHNICAL EXPERTISE</h3>
+            <ul className="space-y-1">
+              {resumeData.technicalExpertise.map((expertise, index) => (
+                <li key={index} className="text-sm">
+                  {expertise}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
         </div>

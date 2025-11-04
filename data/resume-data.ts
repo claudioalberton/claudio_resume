@@ -34,7 +34,8 @@ export interface ResumeData {
   keyAchievements: string[];
   experience: Experience[];
   education: Education[];
-  skills: string[];
+  coreCompetencies: string[];
+  technicalExpertise: string[];
   languages: Language[];
   patents: Patent[];
 }
@@ -147,37 +148,22 @@ export const resumeData: ResumeData = {
       period: "All coursework completed; final project pending."
     }
   ],
-  skills: [
-    "Team Management",
-    "AI Tools (Programming, Code Generation, Planning)",
-    "AI-Assisted Development",
-    "AI-Powered Planning & Automation",
-    "Systems Automation",
-    "Cloud Governance (AWS)",
-    "Device Lifecycle Operations",
-    ".NET C#",
-    "Full Stack Development",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "SQL Server",
-    "AWS",
-    "Visual Studio",
-    "AForge",
-    "OpenCV",
-    "Pascal Delphi",
-    "Oracle",
-    "Java",
-    "Image Processing",
-    "ERP Systems",
-    "Software Architecture",
-    "OCR Technology",
-    "Scrum/Agile",
-    "Active Directory",
-    "Database Administration",
-    "R&D Innovation",
-    "Executive Technology Strategy",
-    "Project Management"
+  coreCompetencies: [
+    "IT Operations & Infrastructure Management",
+    "Team Leadership & Vendor Management",
+    "Systems Automation & Cloud Governance (AWS)",
+    "AI-Powered Planning & Process Optimization",
+    "Device Lifecycle Management",
+    "Software Architecture & ERP Modernization",
+    "AI-Assisted Development & Strategic Automation"
+  ],
+  technicalExpertise: [
+    "Languages & Frameworks: C#, .NET, Next.js, TypeScript, Tailwind CSS, SQL Server",
+    "Cloud & DevOps: AWS, Docker, CI/CD, Infrastructure Automation",
+    "Computer Vision & AI Tools: OpenCV, AForge, OCR Systems, Image Processing",
+    "Databases: SQL Server, Oracle",
+    "Other Tools: Active Directory, Visual Studio, Pascal Delphi",
+    "Methodologies: Scrum/Agile, R&D Innovation, Executive Technology Strategy"
   ],
   languages: [
     { name: "English", level: "Full Professional" },

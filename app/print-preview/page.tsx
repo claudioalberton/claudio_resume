@@ -132,42 +132,6 @@ function PrintPreviewContent() {
     return levelMap[level] || 75
   }
 
-  const getSkillPercentage = (skill: string) => {
-    const skillLevels: Record<string, number> = {
-      "Team Management": 90,
-      "AI Tools (Programming, Code Generation, Planning)": 90,
-      "AI-Assisted Development": 90,
-      "AI-Powered Planning & Automation": 90,
-      "Systems Automation": 90,
-      "Cloud Governance (AWS)": 85,
-      "Device Lifecycle Operations": 90,
-      ".NET C#": 90,
-      "Full Stack Development": 90,
-      "Next.js": 85,
-      "TypeScript": 85,
-      "Tailwind CSS": 85,
-      "SQL Server": 90,
-      "Visual Studio": 90,
-      "AForge": 85,
-      "OpenCV": 85,
-      "Pascal Delphi": 90,
-      "Oracle": 80,
-      "Java": 75,
-      AWS: 70,
-      "ERP Systems": 80,
-      "Software Architecture": 90,
-      "Image Processing": 85,
-      "OCR Technology": 85,
-      "Scrum/Agile": 90,
-      "Active Directory": 85,
-      "Database Administration": 90,
-      "R&D Innovation": 90,
-      "Executive Technology Strategy": 85,
-      "Project Management": 90,
-    }
-    return skillLevels[skill] || 75
-  }
-
   // Auto-trigger print when autoExport query param is present
   useEffect(() => {
     if (autoExport && contentRef.current) {
@@ -251,40 +215,32 @@ function PrintPreviewContent() {
                 </div>
               </div>
 
-              {/* Skills */}
+              {/* Core Competencies */}
               <div className="mb-1" style={{ marginBottom: '4pt', marginTop: '0', padding: '0' }}>
                 <h3 className="text-[7pt] font-bold uppercase mb-0.5 pb-0.5 border-b border-yellow-500/50" style={{ marginBottom: '2pt', marginTop: '0', paddingBottom: '2pt', paddingTop: '0' }}>
-                  Top Skills
+                  Core Competencies
                 </h3>
-                <div className="space-y-[2px] mb-0.5" style={{ marginBottom: '2pt', marginTop: '0', paddingTop: '0' }}>
-                  {resumeData.skills.slice(0, 8).map((skill, index) => {
-                    const percentage = getSkillPercentage(skill)
-                    return (
-                      <div key={index} className="mb-[2px]" style={{ marginBottom: index < 7 ? '2pt' : '0', marginTop: index === 0 ? '0' : '2pt', padding: '0' }}>
-                        <div className="flex justify-between items-center mb-[1px]" style={{ marginBottom: '1pt', marginTop: '0', padding: '0' }}>
-                          <span className="text-[5.5pt] leading-none" style={{ lineHeight: '1', margin: '0', padding: '0' }}>{skill}</span>
-                          <span className="text-[5pt] text-yellow-400 leading-none" style={{ lineHeight: '1', margin: '0', padding: '0' }}>{percentage}%</span>
-                        </div>
-                        <div className="w-full h-[2px] bg-gray-600 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full"
-                            style={{ width: `${percentage}%` }}
-                          />
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-                <div>
-                  <p className="text-[5.5pt] font-semibold mb-0.5 text-yellow-400">Other Skills:</p>
-                  <div className="flex flex-wrap gap-0.5">
-                    {resumeData.skills.slice(8).map((skill, index) => (
-                      <span key={index} className="text-[4.5pt] bg-gray-700 px-0.5 py-0.5 rounded leading-tight">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <ul className="space-y-[2px] mb-0.5" style={{ marginBottom: '2pt', marginTop: '0', paddingTop: '0' }}>
+                  {resumeData.coreCompetencies.map((competency, index) => (
+                    <li key={index} className="text-[5.5pt] leading-tight" style={{ lineHeight: '1.2', marginBottom: index < resumeData.coreCompetencies.length - 1 ? '1pt' : '0' }}>
+                      {competency}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Technical Expertise */}
+              <div className="mb-1" style={{ marginBottom: '4pt', marginTop: '0', padding: '0' }}>
+                <h3 className="text-[7pt] font-bold uppercase mb-0.5 pb-0.5 border-b border-yellow-500/50" style={{ marginBottom: '2pt', marginTop: '0', paddingBottom: '2pt', paddingTop: '0' }}>
+                  Technical Expertise
+                </h3>
+                <ul className="space-y-[2px]" style={{ marginTop: '0', paddingTop: '0' }}>
+                  {resumeData.technicalExpertise.map((expertise, index) => (
+                    <li key={index} className="text-[5pt] leading-tight" style={{ lineHeight: '1.2', marginBottom: index < resumeData.technicalExpertise.length - 1 ? '1pt' : '0' }}>
+                      {expertise}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Education */}

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code2 } from "lucide-react"
+import { Code2, Target } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { resumeData } from "@/data/resume-data"
 
@@ -15,28 +15,52 @@ export function SkillsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <Code2 className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold">Technical Skills</h2>
+          {/* Core Competencies */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <Target className="h-8 w-8 text-primary" />
+              <h2 className="text-3xl md:text-4xl font-bold">Core Competencies</h2>
+            </div>
+            <div className="space-y-3">
+              {resumeData.coreCompetencies.map((competency, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <span className="text-base md:text-lg text-foreground">{competency}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            {resumeData.skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                <Badge
-                  variant="secondary"
-                  className="text-sm py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+          {/* Technical Expertise */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <Code2 className="h-8 w-8 text-primary" />
+              <h2 className="text-3xl md:text-4xl font-bold">Technical Expertise</h2>
+            </div>
+            <div className="space-y-3">
+              {resumeData.technicalExpertise.map((expertise, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  {skill}
-                </Badge>
-              </motion.div>
-            ))}
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <span className="text-base md:text-lg text-foreground">{expertise}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

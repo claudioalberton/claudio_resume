@@ -14,7 +14,7 @@ const stats = [
   },
   {
     icon: Code,
-    value: `${resumeData.skills.length}+`,
+    value: `${resumeData.coreCompetencies.length + resumeData.technicalExpertise.length}+`,
     label: "Technologies",
     color: "text-primary"
   },
