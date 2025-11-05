@@ -105,7 +105,7 @@ function PrintPreviewContent() {
           overflow: hidden !important;
           margin: 0 !important;
           padding: 0.8cm !important;
-          padding-bottom: 2cm !important;
+          padding-bottom: 3cm !important;
           box-sizing: border-box !important;
           position: relative !important;
           word-wrap: break-word !important;
@@ -119,7 +119,7 @@ function PrintPreviewContent() {
           overflow: hidden !important;
           margin: 0 !important;
           padding: 0.8cm !important;
-          padding-top: 1.2cm !important;
+          padding-top: 2.5cm !important;
           box-sizing: border-box !important;
           position: relative !important;
           word-wrap: break-word !important;
@@ -289,7 +289,7 @@ function PrintPreviewContent() {
             </aside>
 
             {/* Right Content - Page 1 */}
-            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingBottom: '2cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingBottom: '3cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
               {/* Summary */}
               <div className="mb-4">
                 <h2 className="text-[10pt] font-bold uppercase text-[#1e293b] mb-2 pb-1 border-b border-gray-300">
@@ -316,7 +316,7 @@ function PrintPreviewContent() {
               </div>
 
               {/* Professional Experience - First 2 jobs */}
-              <div style={{ marginBottom: '1cm', paddingBottom: '0.5cm' }}>
+              <div style={{ marginBottom: '2cm', paddingBottom: '1cm' }}>
                 <h2 className="text-[10pt] font-bold uppercase text-[#1e293b] mb-2 pb-1 border-b border-gray-300">
                   Professional Experience
                 </h2>
@@ -399,7 +399,7 @@ function PrintPreviewContent() {
             </aside>
 
             {/* Right Content - Page 2+ */}
-            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingTop: '1.2cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingTop: '2.5cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             {/* Remaining Experience */}
             <div>
               <h2 className="text-[11pt] font-bold uppercase text-[#1e293b] mb-3 pb-1 border-b-2 border-gray-300">
@@ -561,7 +561,7 @@ function PrintPreviewContent() {
             overflow: hidden !important;
             margin: 0 !important;
             padding: 0.8cm !important;
-            padding-bottom: 2cm !important;
+            padding-bottom: 3cm !important;
             box-sizing: border-box !important;
             position: relative !important;
             word-wrap: break-word !important;
@@ -575,7 +575,7 @@ function PrintPreviewContent() {
             overflow: hidden !important;
             margin: 0 !important;
             padding: 0.8cm !important;
-            padding-top: 1.2cm !important;
+            padding-top: 2.5cm !important;
             box-sizing: border-box !important;
             position: relative !important;
             word-wrap: break-word !important;
