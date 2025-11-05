@@ -97,7 +97,20 @@ function PrintPreviewContent() {
         aside div[class*="mb-"] {
           margin-bottom: 2pt !important;
         }
-        .print-page-one > div:last-child,
+        .print-page-one > div:last-child {
+          flex: 0 0 12.5cm !important;
+          width: 12.5cm !important;
+          min-width: 12.5cm !important;
+          max-width: 12.5cm !important;
+          overflow: hidden !important;
+          margin: 0 !important;
+          padding: 0.8cm !important;
+          padding-bottom: 1.2cm !important;
+          box-sizing: border-box !important;
+          position: relative !important;
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
+        }
         .print-page-two > div:last-child {
           flex: 0 0 12.5cm !important;
           width: 12.5cm !important;
@@ -275,7 +288,7 @@ function PrintPreviewContent() {
             </aside>
 
             {/* Right Content - Page 1 */}
-            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingBottom: '1.2cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
               {/* Summary */}
               <div className="mb-4">
                 <h2 className="text-[10pt] font-bold uppercase text-[#1e293b] mb-2 pb-1 border-b border-gray-300">
@@ -302,7 +315,7 @@ function PrintPreviewContent() {
               </div>
 
               {/* Professional Experience - First 2 jobs */}
-              <div>
+              <div style={{ marginBottom: '0.5cm' }}>
                 <h2 className="text-[10pt] font-bold uppercase text-[#1e293b] mb-2 pb-1 border-b border-gray-300">
                   Professional Experience
                 </h2>
@@ -539,7 +552,20 @@ function PrintPreviewContent() {
           aside [class*="mb-\\["] {
             margin-bottom: 2px !important;
           }
-          .print-page-one > div:last-child,
+          .print-page-one > div:last-child {
+            flex: 0 0 12.5cm !important;
+            width: 12.5cm !important;
+            min-width: 12.5cm !important;
+            max-width: 12.5cm !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+            padding: 0.8cm !important;
+            padding-bottom: 1.2cm !important;
+            box-sizing: border-box !important;
+            position: relative !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+          }
           .print-page-two > div:last-child {
             flex: 0 0 12.5cm !important;
             width: 12.5cm !important;
