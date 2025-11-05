@@ -1,21 +1,50 @@
-# Modern Resume Website
+# Claudio Alberton Batista - Professional Resume
 
-A beautiful, responsive resume website built with Next.js, TypeScript, and Tailwind CSS. Features dark mode, smooth animations, and PDF export functionality.
+👋 **Technology Development Manager | Senior IT Operations Engineer | Software Architect**
 
-## Features
+[![Live Resume](https://img.shields.io/badge/Live%20Resume-View%20Online-blue)](https://claudioalberton.github.io/claudio_resume/)
+[![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-green)](https://claudioalberton.github.io/claudio_resume/)
+[![Next.js](https://img.shields.io/badge/Next.js-14+-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue)](https://www.typescriptlang.org/)
 
-- Modern, professional design with clean layout
-- Responsive design (mobile, tablet, desktop)
-- Dark mode toggle
-- Smooth animations with Framer Motion
-- PDF export functionality
-- Print-friendly styling
-- Static site generation for easy deployment
-- Beautiful typography and proper spacing
-- Timeline view for professional experience
-- Sections for achievements, experience, education, skills, languages, and patents
+## 👨‍💼 About
 
-## Tech Stack
+This is my interactive resume website showcasing **19+ years** of experience leading technology innovation across automotive manufacturing and gaming industries. I've designed patented 3D alignment systems deployed across Latin America and currently modernize global IT infrastructure and automation for a Canadian game studio.
+
+### 🏆 Key Highlights
+
+- **🏅 Multiple Patents**: Designed world's most advanced laser alignment systems (Aligner Digi 4 & 5)
+- **🌎 Latin America First**: Created Latin America's first AI-powered 3D aligner (Aligner 3D Flash)
+- **☁️ Cloud Architecture**: AWS-based solutions for enterprise automation (TcDataCloud, Dynamic Software Block)
+- **🤖 AI Integration**: Leveraging AI tools for development optimization, code generation, and planning
+- **🎮 Gaming Industry**: Currently at Uken Games, modernizing IT infrastructure and device lifecycle management
+- **📊 Enterprise Solutions**: ERP modernization, R&D innovation, and executive technology strategy
+
+## 🌐 Live Resume
+
+👉 **[View My Resume Online](https://claudioalberton.github.io/claudio_resume/)**
+
+The resume includes:
+- Professional summary and key achievements
+- Detailed work experience with 19+ years in tech leadership
+- Technical skills and core competencies
+- Education and certifications
+- Patents and innovations
+- Projects portfolio (40+ projects delivered)
+
+## ✨ Website Features
+
+- 📄 **PDF Export**: Download a print-ready PDF version with optimized layout
+- 🌓 **Dark Mode**: Toggle between light and dark themes with smooth transitions
+- 📱 **Fully Responsive**: Works perfectly on all devices (mobile, tablet, desktop)
+- ⚡ **Fast Performance**: Static site generation for optimal loading speeds
+- 🎨 **Modern Design**: Clean, professional layout with smooth animations
+- 🔗 **Projects Page**: Dedicated page showcasing 40+ projects with descriptions and technologies
+- 🎯 **Interactive Elements**: Clickable stat cards, smooth scrolling, and hover effects
+
+## 🛠️ Tech Stack
+
+This resume website is built with modern web technologies:
 
 - **Framework**: Next.js 14+ with App Router
 - **Language**: TypeScript
@@ -25,8 +54,9 @@ A beautiful, responsive resume website built with Next.js, TypeScript, and Tailw
 - **Icons**: Lucide React
 - **PDF Export**: react-to-print
 - **Theme**: next-themes for dark mode
+- **Deployment**: GitHub Pages with GitHub Actions CI/CD
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -35,17 +65,23 @@ A beautiful, responsive resume website built with Next.js, TypeScript, and Tailw
 
 ### Installation
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/claudioalberton/claudio_resume.git
+cd claudio_resume
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Run the development server:
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+4. Open [http://localhost:3000/claudio_resume/](http://localhost:3000/claudio_resume/) in your browser
 
 ### Building for Production
 
@@ -57,15 +93,16 @@ npm run build
 
 This will generate a static site in the `out` directory that can be deployed to any static hosting service.
 
-## Deployment
+## 📦 Deployment
 
 ### GitHub Pages
 
-1. Update the `basePath` in `next.config.js` if deploying to a subdirectory
-2. Build the project: `npm run build`
-3. Deploy the `out` directory to GitHub Pages
+This project is automatically deployed to GitHub Pages via GitHub Actions. The workflow:
+1. Builds the Next.js project
+2. Creates a `.nojekyll` file for proper static export handling
+3. Deploys the `out` directory to GitHub Pages
 
-### Other Static Hosts
+### Manual Deployment
 
 The `out` directory can be deployed to:
 - Vercel
@@ -74,7 +111,7 @@ The `out` directory can be deployed to:
 - Azure Static Web Apps
 - Any static file hosting service
 
-## Customization
+## 🎨 Customization
 
 ### Update Resume Data
 
@@ -94,14 +131,16 @@ The default color scheme uses a professional blue palette. To change:
 2. Modify the `--primary` and related color values
 3. Both light and dark themes can be customized independently
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 resume-website/
 ├── app/
 │   ├── globals.css          # Global styles and theme
 │   ├── layout.tsx           # Root layout with theme provider
-│   └── page.tsx             # Main page
+│   ├── page.tsx             # Main page
+│   ├── print-preview/        # PDF export page
+│   └── projects/            # Projects showcase page
 ├── components/
 │   ├── ui/                  # Reusable UI components
 │   ├── achievements-section.tsx
@@ -112,6 +151,7 @@ resume-website/
 │   ├── patents-section.tsx
 │   ├── pdf-export-button.tsx
 │   ├── skills-section.tsx
+│   ├── sidebar.tsx
 │   ├── theme-provider.tsx
 │   └── theme-toggle.tsx
 ├── data/
@@ -123,34 +163,42 @@ resume-website/
 └── package.json
 ```
 
-## Features Details
+## 🔧 Features Details
 
 ### Dark Mode
 - Toggle between light and dark themes
-- Persistent theme selection
+- Persistent theme selection using localStorage
 - Smooth transitions
 
 ### PDF Export
 - Click "Download PDF" button to generate a PDF
-- Print-optimized styling
+- Print-optimized styling with proper page breaks
 - Maintains colors and formatting
+- Two-page layout with sidebar on first page
 
 ### Animations
 - Fade-in effects on scroll
 - Smooth transitions
 - Hover effects on interactive elements
+- Stagger animations for lists
 
-## Browser Support
+## 🌐 Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
 
-## License
+## 📧 Contact
+
+- **Email**: [claudioalberton11@gmail.com](mailto:claudioalberton11@gmail.com)
+- **LinkedIn**: [claudio-alberton-batista](https://www.linkedin.com/in/claudio-alberton-batista-366891120)
+- **Location**: Araucária, Paraná, Brazil
+
+## 📄 License
 
 MIT License - Feel free to use this template for your own resume!
 
-## Author
+---
 
-Claudio Alberton Batista
+**Built with ❤️ by Claudio Alberton Batista**
