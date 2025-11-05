@@ -95,9 +95,16 @@ const styles = StyleSheet.create({
   },
   // Contact section
   contactText: {
-    fontSize: 7,
+    fontSize: 6.5,
     marginBottom: 5,
     lineHeight: 1.3,
+    wordWrap: 'break-word',
+  },
+  contactLink: {
+    fontSize: 5.5,
+    marginBottom: 5,
+    lineHeight: 1.3,
+    wordWrap: 'break-word',
   },
   // Content items
   summaryText: {
@@ -120,6 +127,16 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     borderLeft: '2px solid #cbd5e1',
     position: 'relative',
+  },
+  experienceDot: {
+    position: 'absolute',
+    left: -6,
+    top: 8,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#eab308',
+    border: '2px solid #ffffff',
   },
   experienceRole: {
     fontSize: 10,
@@ -267,8 +284,8 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           <View>
             <Text style={styles.sidebarSectionHeader}>Contact</Text>
             <Text style={styles.contactText}>{resumeData.location}</Text>
-            <Text style={styles.contactText}>{resumeData.email}</Text>
-            <Text style={styles.contactText}>{resumeData.linkedin}</Text>
+            <Text style={styles.contactLink}>{resumeData.email}</Text>
+            <Text style={styles.contactLink}>{resumeData.linkedin}</Text>
           </View>
         </View>
 
@@ -293,6 +310,7 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
             <Text style={styles.contentSectionHeader}>Professional Experience</Text>
             {resumeData.experience.map((exp, index) => (
               <View key={index} style={styles.experienceItem} wrap={false}>
+                <View style={styles.experienceDot} />
                 <Text style={styles.experienceRole}>{exp.role}</Text>
                 <Text style={styles.experienceCompany}>{exp.company}</Text>
                 <Text style={styles.experienceDetails}>

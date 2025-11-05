@@ -111,6 +111,8 @@ The `out` directory can be deployed to:
 - Azure Static Web Apps
 - Any static file hosting service
 
+For detailed deployment instructions, see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+
 ## 🎨 Customization
 
 ### Update Resume Data
@@ -130,6 +132,12 @@ The default color scheme uses a professional blue palette. To change:
 1. Edit CSS variables in `/app/globals.css`
 2. Modify the `--primary` and related color values
 3. Both light and dark themes can be customized independently
+
+### Additional Documentation
+
+- **Quick Start Guide**: [`docs/QUICKSTART.md`](docs/QUICKSTART.md)
+- **Customization Checklist**: [`docs/CUSTOMIZATION_CHECKLIST.md`](docs/CUSTOMIZATION_CHECKLIST.md)
+- **Adding Profile Photo**: [`docs/ADD_PHOTO.md`](docs/ADD_PHOTO.md)
 
 ## 📁 Project Structure
 
