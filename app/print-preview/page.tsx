@@ -102,10 +102,10 @@ function PrintPreviewContent() {
           width: 12.5cm !important;
           min-width: 12.5cm !important;
           max-width: 12.5cm !important;
-          overflow: hidden !important;
+          overflow: visible !important;
           margin: 0 !important;
+          margin-bottom: 2.5cm !important;
           padding: 0.8cm !important;
-          padding-bottom: 3cm !important;
           box-sizing: border-box !important;
           position: relative !important;
           word-wrap: break-word !important;
@@ -116,10 +116,10 @@ function PrintPreviewContent() {
           width: 12.5cm !important;
           min-width: 12.5cm !important;
           max-width: 12.5cm !important;
-          overflow: hidden !important;
+          overflow: visible !important;
           margin: 0 !important;
+          margin-top: 2cm !important;
           padding: 0.8cm !important;
-          padding-top: 2.5cm !important;
           box-sizing: border-box !important;
           position: relative !important;
           word-wrap: break-word !important;
@@ -289,7 +289,7 @@ function PrintPreviewContent() {
             </aside>
 
             {/* Right Content - Page 1 */}
-            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingBottom: '3cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+            <div className="bg-white" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingBottom: '0.8cm', marginBottom: '2.5cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
               {/* Summary */}
               <div className="mb-4">
                 <h2 className="text-[10pt] font-bold uppercase text-[#1e293b] mb-2 pb-1 border-b border-gray-300">
@@ -353,6 +353,8 @@ function PrintPreviewContent() {
                   ))}
                 </div>
               </div>
+              {/* Spacer to ensure proper page break margin */}
+              <div style={{ height: '3cm', width: '100%', flexShrink: 0, backgroundColor: 'transparent' }} aria-hidden="true"></div>
             </div>
           </div>
 
@@ -399,7 +401,9 @@ function PrintPreviewContent() {
             </aside>
 
             {/* Right Content - Page 2+ */}
-            <div className="bg-white overflow-hidden" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingTop: '2.5cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+            <div className="bg-white" style={{ width: '12.5cm', flex: '0 0 12.5cm', minWidth: '12.5cm', maxWidth: '12.5cm', boxSizing: 'border-box', padding: '0.8cm', paddingTop: '0.8cm', marginTop: '2cm', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+            {/* Spacer at top of page 2 for proper page break spacing */}
+            <div style={{ height: '2.5cm', width: '100%', flexShrink: 0, backgroundColor: 'transparent' }} aria-hidden="true"></div>
             {/* Remaining Experience */}
             <div>
               <h2 className="text-[11pt] font-bold uppercase text-[#1e293b] mb-3 pb-1 border-b-2 border-gray-300">
@@ -558,10 +562,10 @@ function PrintPreviewContent() {
             width: 12.5cm !important;
             min-width: 12.5cm !important;
             max-width: 12.5cm !important;
-            overflow: hidden !important;
+            overflow: visible !important;
             margin: 0 !important;
+            margin-bottom: 2.5cm !important;
             padding: 0.8cm !important;
-            padding-bottom: 3cm !important;
             box-sizing: border-box !important;
             position: relative !important;
             word-wrap: break-word !important;
@@ -572,10 +576,10 @@ function PrintPreviewContent() {
             width: 12.5cm !important;
             min-width: 12.5cm !important;
             max-width: 12.5cm !important;
-            overflow: hidden !important;
+            overflow: visible !important;
             margin: 0 !important;
+            margin-top: 2cm !important;
             padding: 0.8cm !important;
-            padding-top: 2.5cm !important;
             box-sizing: border-box !important;
             position: relative !important;
             word-wrap: break-word !important;
